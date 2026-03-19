@@ -30,8 +30,8 @@ const links = [
 
 export default function Home() {
   return (
-    <div className="flex min-h-full flex-col items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex w-full max-w-md flex-col items-center gap-12 px-6 py-20">
+    <div className="flex min-h-screen flex-1 flex-col items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <main className="flex w-full max-w-md flex-col items-center gap-12 px-6">
         <h1 className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
           brandonbybran
         </h1>
