@@ -283,7 +283,7 @@ export default function PingPongPage() {
       </Link>
       <h1 className="text-xl font-bold text-white sm:text-2xl">Ping Pong</h1>
 
-      <div ref={containerRef} className="w-full max-w-[800px]">
+      <div ref={containerRef} className="flex w-full max-w-[800px] justify-center">
         <canvas
           ref={canvasRef}
           className="rounded border border-zinc-800"
@@ -292,7 +292,7 @@ export default function PingPongPage() {
       </div>
 
       {/* Touch controls: visible on small screens only */}
-      <div className="flex w-full max-w-[800px] justify-between gap-4 sm:hidden">
+      <div className="flex w-full max-w-[800px] justify-between gap-4 lg:hidden">
         {/* Player 1 controls */}
         <div className="flex gap-2">
           <button
@@ -335,7 +335,7 @@ export default function PingPongPage() {
       </div>
 
       {/* Keyboard instructions: visible on large screens only */}
-      <p className="hidden text-sm text-zinc-500 sm:block">
+      <p className="hidden text-sm text-zinc-500 lg:block">
         J1: W/S — J2: ↑/↓ — ESPACIO: pausar
       </p>
     </div>
