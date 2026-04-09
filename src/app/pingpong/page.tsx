@@ -2,6 +2,8 @@
 
 import { useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 // Logical game resolution (all game logic uses these coordinates)
 const GAME_W = 800;
@@ -274,68 +276,73 @@ export default function PingPongPage() {
   }, [draw, update, resizeCanvas, handleCanvasTap]);
 
   return (
-    <div className="flex min-h-dvh flex-col items-center justify-center gap-4 bg-black px-4 font-mono">
-      <Link
-        href="/"
-        className="text-sm text-zinc-500 transition hover:text-zinc-300"
-      >
-        ← Volver
-      </Link>
-      <h1 className="text-xl font-bold text-white sm:text-2xl">Ping Pong</h1>
+    <div className="flex min-h-dvh flex-col items-center justify-center gap-4 bg-background px-4">
+      <Button asChild variant="ghost" size="sm">
+        <Link href="/">← Volver</Link>
+      </Button>
+      <h1 className="text-xl font-bold sm:text-2xl">Ping Pong</h1>
 
-      <div ref={containerRef} className="flex w-full max-w-[800px] justify-center">
-        <canvas
-          ref={canvasRef}
-          className="rounded border border-zinc-800"
-          onPointerUp={handleCanvasTap}
-        />
-      </div>
+      <Card className="w-full max-w-[820px]">
+        <CardContent className="p-3 sm:p-4">
+          <div ref={containerRef} className="flex w-full justify-center">
+            <canvas
+              ref={canvasRef}
+              className="rounded border border-border bg-black"
+              onPointerUp={handleCanvasTap}
+            />
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Touch controls: visible on small screens only */}
       <div className="flex w-full max-w-[800px] justify-between gap-4 lg:hidden">
         {/* Player 1 controls */}
         <div className="flex gap-2">
-          <button
-            className="select-none rounded-lg bg-zinc-800 px-5 py-4 text-lg font-bold text-white active:bg-zinc-600"
+          <Button
+            variant="outline"
+            className="select-none px-5 py-4 text-lg font-bold active:translate-y-px"
             onTouchStart={() => holdKey("_p1up")}
             onTouchEnd={() => releaseKey("_p1up")}
             onTouchCancel={() => releaseKey("_p1up")}
           >
             ▲
-          </button>
-          <button
-            className="select-none rounded-lg bg-zinc-800 px-5 py-4 text-lg font-bold text-white active:bg-zinc-600"
+          </Button>
+          <Button
+            variant="outline"
+            className="select-none px-5 py-4 text-lg font-bold active:translate-y-px"
             onTouchStart={() => holdKey("_p1down")}
             onTouchEnd={() => releaseKey("_p1down")}
             onTouchCancel={() => releaseKey("_p1down")}
           >
             ▼
-          </button>
+          </Button>
         </div>
 
         {/* Player 2 controls */}
         <div className="flex gap-2">
-          <button
-            className="select-none rounded-lg bg-zinc-800 px-5 py-4 text-lg font-bold text-white active:bg-zinc-600"
+          <Button
+            variant="outline"
+            className="select-none px-5 py-4 text-lg font-bold active:translate-y-px"
             onTouchStart={() => holdKey("_p2up")}
             onTouchEnd={() => releaseKey("_p2up")}
             onTouchCancel={() => releaseKey("_p2up")}
           >
             ▲
-          </button>
-          <button
-            className="select-none rounded-lg bg-zinc-800 px-5 py-4 text-lg font-bold text-white active:bg-zinc-600"
+          </Button>
+          <Button
+            variant="outline"
+            className="select-none px-5 py-4 text-lg font-bold active:translate-y-px"
             onTouchStart={() => holdKey("_p2down")}
             onTouchEnd={() => releaseKey("_p2down")}
             onTouchCancel={() => releaseKey("_p2down")}
           >
             ▼
-          </button>
+          </Button>
         </div>
       </div>
 
       {/* Keyboard instructions: visible on large screens only */}
-      <p className="hidden text-sm text-zinc-500 lg:block">
+      <p className="hidden text-sm text-muted-foreground lg:block">
         J1: W/S — J2: ↑/↓ — ESPACIO: pausar
       </p>
     </div>

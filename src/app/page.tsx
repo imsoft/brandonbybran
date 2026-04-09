@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 const links = [
   {
@@ -40,41 +42,47 @@ export default function Home() {
 
         <nav className="flex w-full flex-col gap-3" aria-label="Redes sociales">
           {links.map(({ name, href, icon }) => (
-            <a
+            <Button
               key={name}
+              asChild
+              variant="outline"
+              size="lg"
+              className="h-auto w-full rounded-xl py-4 text-base"
+            >
+              <a
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 rounded-xl border border-zinc-200 bg-white px-6 py-4 text-zinc-800 shadow-sm transition hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:border-zinc-700 dark:hover:bg-zinc-800"
-            >
-              {icon}
-              <span className="font-medium">{name}</span>
-            </a>
+              >
+                {icon}
+                <span className="font-medium">{name}</span>
+              </a>
+            </Button>
           ))}
         </nav>
 
-        <div className="flex w-full flex-col gap-3">
-          <Link
-            href="/clicker"
-            className="flex items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white px-6 py-4 text-zinc-800 shadow-sm transition hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:border-zinc-700 dark:hover:bg-zinc-800"
-          >
-            <svg className="size-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
-            </svg>
-            <span className="font-medium">Clicker</span>
-          </Link>
-          <Link
-            href="/pingpong"
-            className="flex items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white px-6 py-4 text-zinc-800 shadow-sm transition hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:border-zinc-700 dark:hover:bg-zinc-800"
-          >
-            <svg className="size-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-              <rect x="2" y="8" width="3" height="8" rx="1" />
-              <rect x="19" y="8" width="3" height="8" rx="1" />
-              <circle cx="12" cy="12" r="2" />
-            </svg>
-            <span className="font-medium">Ping Pong</span>
-          </Link>
-        </div>
+        <Card className="w-full rounded-xl">
+          <CardContent className="flex flex-col gap-3 pt-4">
+            <Button asChild variant="outline" size="lg" className="h-auto w-full rounded-xl py-4 text-base">
+              <Link href="/clicker">
+                <svg className="size-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+                </svg>
+                <span className="font-medium">Clicker</span>
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="h-auto w-full rounded-xl py-4 text-base">
+              <Link href="/pingpong">
+                <svg className="size-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <rect x="2" y="8" width="3" height="8" rx="1" />
+                  <rect x="19" y="8" width="3" height="8" rx="1" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg>
+                <span className="font-medium">Ping Pong</span>
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
       </main>
     </div>
   );
