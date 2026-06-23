@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# brandonbybran — Personal Site & Minigames
 
-## Getting Started
+Un sitio web personal tipo "link-in-bio" interactivo, construido con **Next.js 16 (App Router)**, **React 19**, y **Tailwind CSS**. 
 
-First, run the development server:
+Este proyecto no solo sirve como portal hacia las redes sociales del creador (@brandonbybran), sino que incluye una colección de minijuegos interactivos completos y un sistema de temas visuales dinámicos.
+
+## ✨ Características Principales
+
+- **Sistema de Temas Dinámicos:** Selector de 16 paletas de colores distintas inspiradas en `shadcn/ui`, con soporte para modo claro/oscuro persistente vía `localStorage`.
+- **Link-in-Bio:** Enlaces directos a redes sociales (Instagram, YouTube, TikTok) integrados de forma limpia y accesible.
+- **Optimización SEO & JSON-LD:** Completamente preparado para motores de búsqueda e Inteligencias Artificiales, con Sitemap, Robots.txt y marcado Schema.org (`Person`).
+- **Responsive Design:** Interfaces que se adaptan perfectamente a pantallas móviles y de escritorio.
+
+## 🎮 Minijuegos Integrados
+
+1. **Clicker (Idle Shop):** Un juego incremental donde el usuario genera "clics", pudiendo invertir su puntuación en una tienda de herramientas (Cursor, Abuelita, Bot, etc.) que generan CPS (Clics Por Segundo) automáticos.
+2. **Ping Pong:** El clásico juego de arcade implementado en Canvas (`2D Context`). Soporta teclado para ordenadores (W/S y Flechas) y botones táctiles en pantalla para dispositivos móviles.
+3. **Laser Terror:** Un minijuego de agilidad y precisión basado en esquivar obstáculos ("fantasmas") y sobrevivir el mayor tiempo posible usando el puntero del ratón o el dedo.
+
+## 🛠️ Stack Tecnológico
+
+- **Framework:** Next.js (App Router, Turbopack)
+- **UI & Styling:** Tailwind CSS + Variables CSS Dinámicas
+- **Componentes:** Componentes base accesibles y personalizables
+- **Despliegue:** Preparado para Vercel o cualquier entorno de Node.js
+
+## 🚀 Instalación y Desarrollo Local
+
+1. Instala las dependencias (se recomienda usar `pnpm`):
+   ```bash
+   pnpm install
+   ```
+2. Inicia el servidor de desarrollo:
+   ```bash
+   pnpm dev
+   ```
+3. Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación.
+
+## 📦 Producción
+
+Para compilar y ejecutar el proyecto para producción:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm build
+pnpm start
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

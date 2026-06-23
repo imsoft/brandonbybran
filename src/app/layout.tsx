@@ -6,27 +6,36 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://brandonbybran.com"),
   title: {
     default: "brandonbybran",
     template: "%s | brandonbybran",
   },
   description: "brandonbybran — sitio personal y proyectos",
-  keywords: ["brandonbybran"],
   authors: [{ name: "brandonbybran" }],
   creator: "brandonbybran",
   openGraph: {
     title: "brandonbybran",
     description: "brandonbybran — sitio personal y proyectos",
     siteName: "brandonbybran",
+    type: "website",
+    locale: "es_MX",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "brandonbybran",
     description: "brandonbybran — sitio personal y proyectos",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -37,7 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="es"
       className="h-full antialiased"
       suppressHydrationWarning
     >

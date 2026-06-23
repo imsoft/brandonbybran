@@ -1,6 +1,24 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+
+export const metadata: Metadata = {
+  description:
+    "Creador de contenido y desarrollo web. Minijuegos: Clicker, Ping Pong y Laser Terror — brandonbybran.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "brandonbybran",
+    description:
+      "Creador de contenido y desarrollo web. Minijuegos: Clicker, Ping Pong y Laser Terror.",
+    url: "/",
+  },
+  twitter: {
+    title: "brandonbybran",
+    description:
+      "Creador de contenido y desarrollo web. Minijuegos: Clicker, Ping Pong y Laser Terror.",
+  },
+};
 
 const links = [
   {
@@ -33,52 +51,81 @@ const links = [
 ];
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "brandonbybran",
+    url: "https://brandonbybran.com",
+    sameAs: [
+      "https://www.instagram.com/brandonbybran/",
+      "https://www.youtube.com/@brandonbybran",
+      "https://www.tiktok.com/@brandonbybran"
+    ],
+    jobTitle: "Content Creator & Developer",
+  };
+
   return (
-    <div className="flex min-h-screen flex-1 flex-col items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex min-h-screen flex-1 flex-col items-center justify-center bg-background font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <main className="flex w-full max-w-md flex-col items-center gap-12 px-6">
-        <h1 className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
+        <h1 className="text-3xl font-semibold tracking-tight text-foreground">
           @brandonbybran
         </h1>
 
-        <nav className="flex w-full flex-col gap-3" aria-label="Redes sociales">
+        <nav className="flex w-full flex-row justify-center gap-3" aria-label="Redes sociales">
           {links.map(({ name, href, icon }) => (
             <Button
               key={name}
               asChild
               variant="outline"
               size="lg"
-              className="h-auto w-full rounded-xl py-4 text-base"
+              className="h-14 w-14 rounded-xl p-0"
             >
               <a
               href={href}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={name}
+              title={name}
               >
                 {icon}
-                <span className="font-medium">{name}</span>
               </a>
             </Button>
           ))}
         </nav>
 
         <Card className="w-full rounded-xl">
-          <CardContent className="flex flex-col gap-3 pt-4">
-            <Button asChild variant="outline" size="lg" className="h-auto w-full rounded-xl py-4 text-base">
+          <CardContent className="flex flex-row gap-3 pt-4">
+            <Button asChild variant="outline" size="lg" className="h-auto flex-1 flex-col gap-1.5 rounded-xl py-4">
               <Link href="/clicker">
                 <svg className="size-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
                 </svg>
-                <span className="font-medium">Clicker</span>
+                <span className="text-sm font-medium">Clicker</span>
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="h-auto w-full rounded-xl py-4 text-base">
+            <Button asChild variant="outline" size="lg" className="h-auto flex-1 flex-col gap-1.5 rounded-xl py-4">
               <Link href="/pingpong">
                 <svg className="size-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                   <rect x="2" y="8" width="3" height="8" rx="1" />
                   <rect x="19" y="8" width="3" height="8" rx="1" />
                   <circle cx="12" cy="12" r="2" />
                 </svg>
-                <span className="font-medium">Ping Pong</span>
+                <span className="text-sm font-medium">Ping Pong</span>
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="h-auto flex-1 flex-col gap-1.5 rounded-xl py-4">
+              <Link href="/laser">
+                <svg className="size-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <circle cx="6" cy="12" r="3" />
+                  <line x1="9" y1="12" x2="22" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="19" y1="9" x2="22" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="19" y1="15" x2="22" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+                <span className="text-sm font-medium">Laser Terror</span>
               </Link>
             </Button>
           </CardContent>
